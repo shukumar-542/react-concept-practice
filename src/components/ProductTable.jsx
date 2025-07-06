@@ -9,7 +9,6 @@ const ProductTable = () => {
     { name: "Nokia", price: 400 },
   ];
 
-  console.log(query);
 
   const filteredProducts = useMemo(()=>{
     return products.filter(product=>product.name.toLowerCase()?.includes(query.toLowerCase()))
