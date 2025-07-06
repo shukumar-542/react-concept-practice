@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import ProductTable from "./components/ProductTable";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -34,6 +35,22 @@ function App() {
 
 
 
+  const factorial = (number)=>{
+    let result = 1; 
+    if(number <= 0){ 
+       result =  1
+    }else{
+      while(number > 1){
+        result =  result * number
+        number--
+      }
+    }
+    return result
+  }
+
+
+
+
   return (
     <div className="">
       <h1>Users</h1>
@@ -52,6 +69,7 @@ function App() {
 
       <button onClick={()=> setCount(count+1)}>Increase Count : {count}</button>
       <button onClick={()=> setNumber(number+1)}>Increase Number :  {number}</button>
+      <ProductTable/>
     </div>
   );
 }
