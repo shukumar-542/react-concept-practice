@@ -2,6 +2,8 @@ import { useMemo, useState } from "react";
 
 function App() {
   const [search, setSearch] = useState("");
+  const [count , setCount ] = useState(0);
+  const [number , setNumber] = useState(5)
 
   const users = [
     "Shukumar Ghosh",
@@ -15,7 +17,22 @@ function App() {
   const filterUsers = useMemo(() => {
     return users?.filter((user) => user.toLowerCase().includes(search.toLowerCase()));
   }, [search]);
-  console.log(filterUsers);
+
+  const expenseCalculation = (num)=>{
+    console.log("calculation..");
+    let result = 0;
+    for(let i = 0 ; i < 1000000000 ; i ++){
+      result += num
+    }
+    return result
+  }
+
+  
+  const calculateValue = useMemo(()=>{
+    return expenseCalculation(number)
+  }, [number])
+
+
 
   return (
     <div className="">
@@ -31,6 +48,10 @@ function App() {
       {filterUsers?.map((user) => {
         return <p key={user}>{user}</p>;
       })}
+      <h2>Expensive Calculation Result: {calculateValue}</h2>
+
+      <button onClick={()=> setCount(count+1)}>Increase Count : {count}</button>
+      <button onClick={()=> setNumber(number+1)}>Increase Number :  {number}</button>
     </div>
   );
 }
