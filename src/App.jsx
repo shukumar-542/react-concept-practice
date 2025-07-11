@@ -53,7 +53,7 @@ function App() {
     return result
   }
 
-
+console.log(state.count)
 
 
   return (
