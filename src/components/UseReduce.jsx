@@ -15,3 +15,16 @@ export const reducer =(state, action)=>{
             return state;
     }
 }
+
+
+export const todoInitialState = [];
+export const todoReducer = (state , action)=>{
+    switch (action.type) {
+        case "add_todo":
+            return [...state ,{ id : Date.now() , text : action.payload , complete : false}]   
+        case "delete_todo": 
+            return state.filter((todo)=> todo.id !== action.payload)
+        default:
+            return state;
+    }
+}
