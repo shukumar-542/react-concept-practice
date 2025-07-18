@@ -8,9 +8,7 @@ function App() {
   const [search, setSearch] = useState("");
   const [count, setCount] = useState(0);
   const [number, setNumber] = useState(5)
-
   const [text, setText] = useState("")
-
   const [state, dispatch] = useReducer(reducer, initialState)
 
   const users = [
@@ -70,8 +68,9 @@ function App() {
 
   const handleDelete = (id)=>{
     todoDispatch({type : 'delete_todo', payload : id})
-    console.log(id)
   }
+
+  console.log(todoState)
 
 
   return (
@@ -114,14 +113,18 @@ function App() {
           <button onClick={handleAdd} className="bg-blue-500 text-white px-4 py-1 rounded">
             Add
           </button>
+         
         </div>
 
         {
 
-          todoState?.map(todo=> <div><p key={todo?.id}>{todo.text}</p><button onClick={()=> handleDelete(todo?.id)}>Delete</button></div>)
-          // todoState.length ? <>
-          
-          // </> : <p>Not todo listed</p>
+          todoState?.map(todo=> <div key={todo?.id}><p style={{ textDecoration: todo.completed ? "line-through" : "none",}} >{todo.text}</p><button onClick={()=> handleDelete(todo?.id)}>Delete</button>
+           <button onClick={()=> dispatch({type : "toggle_todo", payload: todo?.id })} className="bg-blue-500 text-white px-4 py-1 rounded">
+            complete
+          </button>
+          </div>)
+         
+
         }
 
       </div>
