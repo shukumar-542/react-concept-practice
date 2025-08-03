@@ -1,6 +1,6 @@
 // 
 /**
-🔧 Understanding useReducer in React with a Real-World Todo App Example
+ 🔧 Understanding useReducer in React with a Real-World Todo App Example
 When managing complex state logic in a React component, useState can become limiting or messy. That's where the useReducer hook shines!
 
 Let’s explore what useReducer is, how it works, and how I used it in one of my projects to build a simple Todo app.
